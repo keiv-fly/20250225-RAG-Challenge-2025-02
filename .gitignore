@@ -1,4 +1,6 @@
 data_in/temp
+tokens
+data_temp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
