@@ -1,0 +1,92 @@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": 0,    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",     "result_prob": 0.0,     "result_found": false,     "result_found_prob": 1.0 }@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+In the provided document, there is no specific information found regarding the Operating margin (%) for Altech Chemicals Ltd. Therefore, here is the output in the required format:```json@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@```
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": null,    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.95}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+The operating margin (%) for Altech Chemicals Ltd (within the last period or at the end of the last period) was not found in the provided documents. Therefore, the result is 'N/A'. Here is the output in the specified format:@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.99}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.95}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.95}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{"result":"N/A","result_prob":0,"result_found":false,"result_found_prob":0.8}@@@
+@@@{    "result": 0,    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@The Operating margin (%) for Altech Chemicals Ltd could not be found within the provided document. The conclusion that it is not present is made with full confidence as the search did not yield relevant data on this metric【4:0†source】.
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{"result":"N/A","result_prob":0,"result_found":false,"result_found_prob":0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 1.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": NaN,    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.95}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.8}@@@
+@@@{    "result": null,    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.8}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.85}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@ The search results did not reveal any information specifically about the operating margin percentage for Altech Chemicals Ltd at the end of the last period. The results mainly discussed equity and share issues.
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.8}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{"result":"N/A","result_prob":0.0,"result_found":false,"result_found_prob":1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.1}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.9}@@@
+@@@{    "result": "N/A",    "result_prob": 0,    "result_found": false,    "result_found_prob": 1}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.5}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 0.0}@@@
+@@@{    "result": "N/A",    "result_prob": 0.0,    "result_found": false,    "result_found_prob": 1.0}@@@
