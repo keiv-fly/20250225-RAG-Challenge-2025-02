@@ -1,6 +1,7 @@
 data_in/temp
 tokens
 data_temp
+data_temp_test
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
