@@ -3,6 +3,8 @@ tokens
 data_temp
 data_temp_test
 
+.env
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
