@@ -10,6 +10,7 @@ LLM_CLIENT = "openrouter"
 LLM_MODEL = "openai/gpt-4o"
 
 model_fast = "google/gemini-2.0-flash-001"
+model_image = "google/gemini-2.0-flash-001"
 # model_fast = "google/gemma-3-27b-it"
 # model_fast = "deepseek/deepseek-r1-distill-llama-70b"
 # model_fast = "microsoft/phi-4-multimodal-instruct"
@@ -213,6 +214,67 @@ The output is a JSON that corresponds to the following pydantic class:
         {
             "role": "user",
             "content": f"{text}",
+        },
+    ]
+    try:
+        response = await client.chat.completions.create(
+            model=model, messages=messages, temperature=0.0
+        )
+    except Exception as e:
+        ans_d = {
+            "result": "",
+            "result_error": True,
+            "result_error_type": "request_error",
+            "result_error_message": str(e),
+        }
+        return i_task, in_params, ans_d
+    ans = response.choices[0].message.content.lower().strip()
+    ans_extracted = extract_json_from_markdown(ans)
+    try:
+        ans_d = json.loads(ans_extracted)
+        _ = Answer(**ans_d)
+        return i_task, in_params, ans_d
+    except:
+        res = await rejson(ans_extracted, str_ans_class)
+        return i_task, in_params, res
+
+
+async def what_is_on_pgn(i_task: int, in_params: dict) -> dict:
+    png_image = in_params["png_image"]
+    client = get_llm_client(provider_name="openrouter")
+    model = model_image
+    str_ans_class = r"""
+class Answer(BaseModel):
+    result: Union[str, Literal["N/A"]] = Field(..., description="What is on the page? If the data is not available, return 'N/A'")
+    """
+
+    # Define the classes in the global scope
+    global Answer
+    exec(str_ans_class, globals())
+
+    messages = [
+        {
+            "role": "system",
+            "content": """
+You need to analyze the image and provide a description of what is on the page.
+
+Provide the answers in the JSON format with the format following the pydantic class Answer.
+
+---
+Output format:
+The output should start with "```json" and end with "```". If the result is empty it should still correspond to the JSON schema and the result should have N/A in result.
+The output is a JSON that corresponds to the following pydantic class:
+""".strip()
+            + str_ans_class,
+        },
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{png_image}"},
+                },
+            ],
         },
     ]
     try:
