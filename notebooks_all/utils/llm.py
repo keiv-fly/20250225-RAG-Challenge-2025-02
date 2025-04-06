@@ -2,8 +2,9 @@ from openai import AsyncOpenAI
 from dotenv import load_dotenv
 import os, asyncio
 import json
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, constr
 from typing import Callable, List, Union, Literal
+import re
 
 load_dotenv()
 LLM_CLIENT = "openrouter"
@@ -53,6 +54,19 @@ def extract_json_from_markdown(ans: str) -> str:
         json_str = ans[start_idx:end_idx].strip()
 
     json_str = json_str.replace("n/a", "N/A")
+    # Find currency values in the format "currency_of_values_in_table": "xxx" and convert to uppercase
+    # This regex works by:
+    # 1. Matching the exact key "currency_of_values_in_table"
+    # 2. Allowing for any whitespace (\s*) between the key, colon, and value
+    # 3. Capturing the 3-letter currency code ([a-zA-Z]{3}) within quotes
+    # 4. Using a lambda function to replace the entire match with the same format
+    #    but converting the captured currency code to uppercase using .upper()
+    if isinstance(json_str, str):
+        json_str = re.sub(
+            r'"currency_of_values_in_table"\s*:\s*"([a-zA-Z]{3})"',
+            lambda m: f'"currency_of_values_in_table": "{m.group(1).upper()}"',
+            json_str,
+        )
     return json_str
 
 
@@ -293,6 +307,88 @@ The output is a JSON that corresponds to the following pydantic class:
     ans_extracted = extract_json_from_markdown(ans)
     try:
         ans_d = json.loads(ans_extracted)
+        _ = Answer(**ans_d)
+        return i_task, in_params, ans_d
+    except:
+        res = await rejson(ans_extracted, str_ans_class)
+        return i_task, in_params, res
+
+
+async def balance_sheet_pgn_extraction(i_task: int, in_params: dict) -> dict:
+    png_image = in_params["png_image"]
+    client = get_llm_client(provider_name="openrouter")
+    model = model_image
+    str_ans_class = r"""
+class LineItem(BaseModel):
+    name: str = Field(..., description="The name of the line item")
+    value: Union[float, Literal["N/A"]] = Field(..., description="The value of the line item in the last period/year. If the data is not available, return 'N/A'")
+
+class Answer(BaseModel):
+    list_of_years_in_columns: List[int] = Field(..., description="List of years in the columns of the table. If the page does not have a table, return an empty list.")
+    last_year: int = Field(..., description="The biggest year in list_of_years_in_columns")
+    list_of_periods_in_columns: List[str] = Field(..., description="List of periods in the columns of the table. If the page does not have a table, return an empty list.")
+    last_period: str = Field(..., description="The latest period in list_of_periods_in_columns")
+    scale_of_values_in_table: Union[Literal["units"], Literal["thousands"], Literal["millions"], Literal["billions"], Literal["N/A"], str] = Field(..., description="Scale of all the values in the table, except for dividends. If the provided scale is not in the list ('units', 'thousands', 'millions', 'billions'), return the scale as is. If the data is not available, return 'N/A'")
+    currency_of_values_in_table: Union[constr(pattern=r'^[A-Z]{3}$'), Literal["N/A"]] = Field(..., description="Currency of all the values in the table in three letter code. If the data is not available, return 'N/A'")
+    total_assets: Union[float, Literal["N/A"]] = Field(..., description="Total assets of the last period in the table. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    cash_and_cash_equivalents: Union[float, Literal["N/A"]] = Field(..., description="Cash and cash equivalents of the last period in the table. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    total_liabilities: Union[float, Literal["N/A"]] = Field(..., description="Total liabilities of the last period in the table. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    total_equity: Union[float, Literal["N/A"]] = Field(..., description="Total equity of the last period in the table. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    total_deposits: Union[float, Literal["N/A"]] = Field(..., description="Total deposits of the last period in the table. This line number should be present for financial institutions. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    loans_outstanding: Union[float, Literal["N/A"]] = Field(..., description="Loans outstanding of the last period in the table. This line number should be present for financial institutions. Provide the number in the same scale as the values in the table. If the data is not available, return 'N/A'")
+    result: bool = Field(..., description="Did you manage to find the total assets in the table? If yes, return True, otherwise return False.")
+    # balance_sheet_markdown_table: Union[str, Literal["N/A"]] = Field(..., description="Convert the balance sheet table to markdown table and return it here. If the data is not available, return 'N/A'")
+    line_items: List[LineItem] = Field(..., description="List of line items in the table. If the data is not available, return an empty list.")
+    """
+
+    # Define the classes in the global scope
+    global Answer
+    exec(str_ans_class, globals())
+
+    messages = [
+        {
+            "role": "system",
+            "content": """
+You need to analyze the image and provide the answers to the questions in the pydantic class Answer.
+
+Provide the answers in the JSON format with the format following the pydantic class Answer.
+
+---
+Output format:
+The output should start with "```json" and end with "```". If the result is empty it should still correspond to the JSON schema and the result should have N/A in result.
+The output is a JSON that corresponds to the following pydantic class:
+""".strip()
+            + str_ans_class,
+        },
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/png;base64,{png_image}"},
+                },
+            ],
+        },
+    ]
+    try:
+        response = await client.chat.completions.create(
+            model=model, messages=messages, temperature=0.0
+        )
+    except Exception as e:
+        ans_d = {
+            "result": "",
+            "result_error": True,
+            "result_error_type": "request_error",
+            "result_error_message": str(e),
+        }
+        return i_task, in_params, ans_d
+    ans = response.choices[0].message.content.lower().strip()
+    ans_extracted = extract_json_from_markdown(ans)
+    try:
+        ans_d = json.loads(ans_extracted)
+        ans_d["currency_of_values_in_table"] = ans_d[
+            "currency_of_values_in_table"
+        ].upper()
         _ = Answer(**ans_d)
         return i_task, in_params, ans_d
     except:
